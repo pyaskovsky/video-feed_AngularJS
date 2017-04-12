@@ -1,4 +1,4 @@
-# AngularJS Vedeo Feed
+# AngularJS Video Feed
 
 ### Running the Application during Development
 
