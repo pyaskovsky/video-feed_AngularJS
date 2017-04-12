@@ -10,18 +10,22 @@ videofeedApp.controller('VideoListController', function VideoListController($sco
   $http.get('https://cdn.playbuzz.com/content/feed/items').then(function(response) {
     $scope.items = response.data.items;
 
-    for (var i = $scope.items.length - 1; i >= 0; i--) {
+    var youtubeUrl = 'https://www.youtube.com/embed/';
+    var facebookUrl = 'http://www.facebook.com/video/embed?video_id=';
 
+    for (var i = $scope.items.length - 1; i >= 0; i--) {
       $scope.trustSrcYoutube = function(videoId) {
-        var videoSrc = 'https://www.youtube.com/embed/' + videoId;
+        var videoSrc = youtubeUrl + videoId;
         return $sce.trustAsResourceUrl(videoSrc);
       }
 
       $scope.trustSrcFacebook = function(videoId) {
-        var videoSrc = 'http://www.facebook.com/video/embed?video_id=' + videoId;
+        var videoSrc = facebookUrl + videoId;
         return $sce.trustAsResourceUrl(videoSrc);
       }
     }
+  }).catch(function(e){
+    console.log('error');
   });
 });
 
