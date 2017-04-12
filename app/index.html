@@ -33,7 +33,6 @@
                       height="270" 
                       width="100%" 
                       scrolling="no"
-                      onerror="alert('Failed')" 
                       ng-src="{{trustSrcYoutube(item.videoId)}}"></iframe>
             </div>
             <div ng-if="item.source ==='facebook'">
@@ -42,12 +41,15 @@
                       frameborder="0" 
                       height="270" 
                       width="100%" 
-                      scrolling="no" 
-                      onerror="alert('Failed')"
+                      scrolling="no"
                       ng-src="{{trustSrcFacebook(item.videoId)}}"></iframe>
             </div>
             <div ng-if="item.source ==='url'">
-              <video crossOrigin="anonymous" controls ng-src="{{item.url}}" width="100%" height="270"></video>      
+              <video crossOrigin="anonymous" 
+                     controls 
+                     ng-src="{{item.url}}" 
+                     width="100%" 
+                     height="270"></video>      
             </div>
           </div>
         </div>
